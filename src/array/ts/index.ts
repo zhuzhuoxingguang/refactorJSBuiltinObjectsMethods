@@ -11,6 +11,17 @@ import forEach from './forEach'
 import every from './every'
 import some from './some'
 import join from './join'
+import fill from './fill'
+import filter from './filter'
+import find from './find'
+import findIndex from './findIndex'
+import flat from './flat'
+import includes from './includes'
+import indexOf from './indexOf'
+import lastIndexOf from './lastIndexOf'
+import reduce from './reduce'
+import reduceRight from './reduceRight'
+import reverse from './reverse'
 
 
 export {
@@ -22,6 +33,17 @@ export {
   every,
   some,
   join,
+  fill,
+  filter,
+  find,
+  findIndex,
+  flat,
+  includes,
+  indexOf,
+  lastIndexOf,
+  reduce,
+  reduceRight,
+  reverse,
 }
 
 export default {
@@ -33,4 +55,15 @@ export default {
   every,
   some,
   join,
+  fill,
+  filter,
+  find,
+  findIndex,
+  flat,
+  includes,
+  indexOf,
+  lastIndexOf,
+  reduce,
+  reduceRight,
+  reverse,
 }
