@@ -62,3 +62,11 @@ console.log(arrSplice, spliceRes);
 let arrSplicePro: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 let resArrSplicePro = arrSplicePro.splice(1, 2, "23", "sdf", "sdfsdf", "00000")
 console.log(arrSplicePro, resArrSplicePro);
+
+let zips1 = [{ name: 'zhangziyi', age: 34 }, { name: "毛不易", age: 45 }], zip2 = [{ job: "actor" }, { job: "singer" }]
+let res = Utils.zip(zips1, zip2, (a, b) => {
+  return {
+    ...a, ...b
+  }
+})
+console.log("zip:", res);

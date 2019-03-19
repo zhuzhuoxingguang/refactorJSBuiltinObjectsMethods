@@ -27,6 +27,7 @@ import unshift from './unshift'
 import shift from './shift'
 import slice from './slice'
 import splice from './splice'
+import zip from './zip'
 
 
 export {
@@ -54,6 +55,7 @@ export {
   shift,
   slice,
   splice,
+  zip
 }
 
 export default {
@@ -81,4 +83,5 @@ export default {
   shift,
   slice,
   splice,
+  zip
 }
