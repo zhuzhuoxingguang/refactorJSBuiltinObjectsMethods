@@ -67,7 +67,7 @@ const Utils = {
     }
     return index
   },
-  flat: function (arr, depth) {
+  flat: function flat (arr, depth) {
     if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
     var results = []
     for (var i = 0; i < arr.length; i++) {
@@ -76,7 +76,7 @@ const Utils = {
       } else {
         for (var j = 0; j < arr[i].length; j++) {
           if (depth && (arr[i][j] instanceof Array)) {
-            var dees = Utils.flat(arr[i][j], depth)
+            var dees = flat(arr[i][j], depth)
             if (dees instanceof Array) {
               for (var n = 0; n < dees.length; n++) {
                 results[results.length] = dees[n]
