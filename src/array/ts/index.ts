@@ -22,6 +22,7 @@ import lastIndexOf from './lastIndexOf'
 import reduce from './reduce'
 import reduceRight from './reduceRight'
 import reverse from './reverse'
+import sort from './sort'
 
 
 export {
@@ -44,6 +45,7 @@ export {
   reduce,
   reduceRight,
   reverse,
+  sort,
 }
 
 export default {
@@ -66,4 +68,5 @@ export default {
   reduce,
   reduceRight,
   reverse,
+  sort,
 }

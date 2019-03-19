@@ -31,7 +31,7 @@ console.log("includes: ", Utils.includes(nums, NaN));
 console.log("indexOf: ", Utils.indexOf(nums, NaN));
 console.log("lastIndexOf: ", Utils.lastIndexOf(nums, NaN));
 
-let numsReduce = [1, 2, 3, 5]
+let numsReduce = [1, 4, "a", "c", "b", 2, 6, 3, 5]
 console.log("reduce: ", Utils.reduce(numsReduce, (a, b, index) => (a + b)));
 
 console.log("reduceRight: ", Utils.reduceRight(numsReduce, (a, b, index) => {
@@ -40,4 +40,5 @@ console.log("reduceRight: ", Utils.reduceRight(numsReduce, (a, b, index) => {
 
 console.log("reverse: ", Utils.reverse(numsReduce), numsReduce);
 
-
+let numsSort = [1, 4, "a", "c", "b", 23, 6, 3, 5]
+console.log("sort:", Utils.sort(numsSort, (a, b) => (a - b)));
