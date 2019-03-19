@@ -5,6 +5,7 @@
  * @param fn 操作函数，需要有类型为布尔值的返回值
  */
 const every = (arr: any[], fn: (item: any) => boolean): boolean => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let bool = true
   for (let i = 0;i < arr.length;i++) {
     bool = fn(arr[i])

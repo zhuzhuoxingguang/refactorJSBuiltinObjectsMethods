@@ -6,6 +6,7 @@
  * @param fn 操作函数，查找条件，具有boolean的返回值
  */
 const find = (arr: any[], fn: (arg: any, index?: number) => boolean): any => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let el: any = undefined
   for (let i = 0;i < arr.length;i++) {
     if (fn(arr[i], i)) {

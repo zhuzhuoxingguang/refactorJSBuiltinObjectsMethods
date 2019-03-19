@@ -8,6 +8,7 @@
  * @param rest 所有需要连接合并的数组
  */
 const concat = (...rest: any) => {
+  if (!(rest[0] instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let results = []
   for (let i = 0;i < rest.length;i++) {
     if (!(rest[i] instanceof Array)) {

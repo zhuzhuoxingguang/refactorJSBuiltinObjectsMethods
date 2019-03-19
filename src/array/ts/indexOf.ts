@@ -6,6 +6,7 @@
  * @param fromIndex 查询起始位置
  */
 const indexOf = (arr: any[], searchValue: any, fromIndex: number = 0): number => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let num = -1
   fromIndex = fromIndex < 0 ? (fromIndex + arr.length < 0 ? 0 : fromIndex + arr.length) : fromIndex
   for (let i = fromIndex;i < arr.length;i++) {

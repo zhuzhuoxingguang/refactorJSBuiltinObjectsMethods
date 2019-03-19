@@ -5,6 +5,7 @@
  * @param rest 需要添加到数组当中的元素
  */
 const unshift = (arr: any[], ...rest): number => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   for (let i = rest.length - 1;i >= 0;i--) {
     for (let j = arr.length;j > 0;j--) {
       arr[j] = arr[j - 1]

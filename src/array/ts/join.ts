@@ -5,6 +5,7 @@
  * @param seperator 连字符，默认为逗号
  */
 const join = (arr: any[], seperator: string = ',') => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let str = "", len = arr.length - 1
   for (let i = 0;i < len;i++) {
     str += arr[i] + seperator

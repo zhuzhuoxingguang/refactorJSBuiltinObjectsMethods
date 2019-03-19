@@ -6,6 +6,7 @@
  */
 
 const some = (arr, fn: (arg: any, index?: number) => boolean) => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let bool = false
   for (let i = 0;i < arr.length;i++) {
     bool = fn(arr[i], i)

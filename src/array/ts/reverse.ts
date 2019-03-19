@@ -4,6 +4,7 @@
  * @param arr 需要操作的数组
  */
 const reverse = (arr: any[]): any[] => {
+  if (!(arr instanceof Array)) throw new Error("请确保参数类型为数组")
   let i = Math.ceil(arr.length / 2)
   for (let j = 0;j < i;j++) {
     let temp = arr[j]

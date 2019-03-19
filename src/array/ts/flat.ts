@@ -7,6 +7,7 @@
  *  depth=false 相当于数组方法flat的参数为1
  */
 const flat = (arr: any[], depth: boolean = false): any[] => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let results = []
   for (let i = 0;i < arr.length;i++) {
     if (!(arr[i] instanceof Array)) {

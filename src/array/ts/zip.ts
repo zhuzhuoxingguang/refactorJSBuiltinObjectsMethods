@@ -6,9 +6,10 @@
  * @param fn 操作函数 需要有返回值，确认两个元素以什么规则合并
  */
 const zip = (arr: any[], others: any[], fn: (arg0: any, arg1: any) => any) => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
+  if (!(others instanceof Array)) throw new Error("请确保第二个参数类型为数组")
   let results = []
   let min = Math.min(arr.length, others.length)
-  let max = Math.max(arr.length, others.length)
   for (let i = 0;i < min;i++) {
     results[results.length] = fn(arr[i], others[i])
   }

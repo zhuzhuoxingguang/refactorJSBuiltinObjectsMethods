@@ -5,6 +5,7 @@
  * @param fn 操作函数
  */
 const map = (arr: any[], fn: (item: any, index: number) => any): any[] => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let results = []
   for (let i = 0;i < arr.length;i++) {
     results[i] = fn(arr[i], i)

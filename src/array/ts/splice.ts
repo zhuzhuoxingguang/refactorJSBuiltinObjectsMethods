@@ -7,6 +7,7 @@
  * @param rest 添加的元素，可多个
  */
 const splice = (arr, start: number = 0, deleteCount: number = arr.length - start, ...rest) => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let results = []
   // 修正起始位置   小于0的话，就加上数组长度，如果还小于0，修正为0   大于数组长度的话 就修正为数组长度
   start = start < 0 ?

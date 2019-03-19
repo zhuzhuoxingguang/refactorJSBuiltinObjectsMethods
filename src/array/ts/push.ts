@@ -7,6 +7,7 @@
  * @param rest 需要添加到arr中的元素
  */
 const push = (arr: any[], ...rest): number => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   for (let i = 0;i < rest.length;i++) {
     arr[arr.length] = rest[i]
   }

@@ -6,6 +6,7 @@
  * @param fromIndex 查找位置，如果小于0， +=arr.length
  */
 const includes = (arr: any[], str: any, fromIndex: number = 0): boolean => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   fromIndex = fromIndex < 0 ? (fromIndex + arr.length < 0 ? 0 : fromIndex + arr.length) : fromIndex
   for (let i = fromIndex;i < arr.length;i++) {
     // 注意检测NaN

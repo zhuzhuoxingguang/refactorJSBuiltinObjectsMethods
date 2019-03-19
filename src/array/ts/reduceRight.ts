@@ -6,6 +6,7 @@
  * @param initialValue 初始化的值，如果不传，默认为数组的最后一项
  */
 const reduceRight = (arr: any[], fn, initialValue?: any): any => {
+  if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let len: number = arr.length, accumulator: any = initialValue
   if (initialValue === undefined) {
     len = arr.length - 1
