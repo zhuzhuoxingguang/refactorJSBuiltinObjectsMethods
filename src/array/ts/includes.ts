@@ -6,13 +6,12 @@
  * @param fromIndex 查找位置，如果小于0， +=arr.length
  */
 const includes = (arr: any[], str: any, fromIndex: number = 0): boolean => {
-  let bool = false
   fromIndex = fromIndex < 0 ? arr.length + fromIndex : fromIndex
   for (let i = fromIndex;i < arr.length;i++) {
     // 注意检测NaN
     if ((arr[i] === str) || (str !== str && arr[i] !== arr[i])) return true
   }
-  return bool
+  return false
 }
 
 export default includes
