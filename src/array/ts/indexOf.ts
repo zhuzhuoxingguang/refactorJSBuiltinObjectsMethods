@@ -7,14 +7,10 @@
  */
 const indexOf = (arr: any[], searchValue: any, fromIndex: number = 0): number => {
   let num = -1
-  fromIndex = fromIndex < 0 ? fromIndex + arr.length : fromIndex
+  fromIndex = fromIndex < 0 ? (fromIndex + arr.length < 0 ? 0 : fromIndex + arr.length) : fromIndex
   for (let i = fromIndex;i < arr.length;i++) {
-    if (i === 2) {
-      console.log(searchValue, arr[i])
-    }
     // 检测NaN
     if ((arr[i] === searchValue) || (searchValue !== searchValue && arr[i] !== arr[i])) {
-
       num = i
       break
     }
