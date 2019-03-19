@@ -23,6 +23,10 @@ import reduce from './reduce'
 import reduceRight from './reduceRight'
 import reverse from './reverse'
 import sort from './sort'
+import unshift from './unshift'
+import shift from './shift'
+import slice from './slice'
+import splice from './splice'
 
 
 export {
@@ -46,6 +50,10 @@ export {
   reduceRight,
   reverse,
   sort,
+  unshift,
+  shift,
+  slice,
+  splice,
 }
 
 export default {
@@ -69,4 +77,8 @@ export default {
   reduceRight,
   reverse,
   sort,
+  unshift,
+  shift,
+  slice,
+  splice,
 }
