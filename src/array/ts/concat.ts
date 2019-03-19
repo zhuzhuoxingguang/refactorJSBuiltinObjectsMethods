@@ -10,6 +10,10 @@
 const concat = (...rest: any) => {
   let results = []
   for (let i = 0;i < rest.length;i++) {
+    if (!(rest[i] instanceof Array)) {
+      results[results.length] = rest[i]
+      break;
+    }
     for (let j = 0;j < rest[i].length;j++) {
       results[results.length] = rest[i][j]
     }
