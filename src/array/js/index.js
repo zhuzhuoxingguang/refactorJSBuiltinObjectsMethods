@@ -19,18 +19,17 @@ const Utils = {
   },
   every: function (arr, fn) {
     if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
-    var bool = true
     for (var i = 0; i < arr.length; i++) {
-      bool = fn(arr[i])
-      if (!bool) break
+      if (!fn(arr[i])) return false
     }
-    return bool
+    return true
   },
   fill: (arr, value, start, end) => {
     if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
     start = start || 0
     start = start < 0 ? start + arr.length : start
     end = end ? (end < 0 ? arr.length + end : end) : arr.length
+    end = Math.min(end, arr.length)
     for (var i = start; i < end; i++) {
       arr[i] = value
     }
