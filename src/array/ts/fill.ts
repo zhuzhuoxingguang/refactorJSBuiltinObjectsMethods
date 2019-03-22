@@ -9,6 +9,7 @@
 const fill = (arr: any[], value: any, start: number = 0, end?: number) => {
   if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   end = end ? (end < 0 ? arr.length + end : end) : arr.length
+  end = Math.min(end, arr.length)
   start = start < 0 ? start + arr.length : start
   for (let i = start;i < end;i++) {
     arr[i] = value
