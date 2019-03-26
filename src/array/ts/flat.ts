@@ -6,6 +6,21 @@
  * @param depth 布尔值，决定是否扁平化整个数组，depth=true相当于数组方法flat的参数Infinity
  *  depth=false 相当于数组方法flat的参数为1
  */
+/* 
+const flat = (arr: any[], depth: boolean = false): any[] => {
+  let results: any[] = []
+  for (let i = 0;i < arr.length;i++) {
+    if (depth && Array.isArray(arr[i])) {
+      results = results.concat(flat(arr[i], depth))
+    } else {
+      results.push(arr[i])
+    }
+  }
+  return results
+}
+ */
+
+
 const flat = (arr: any[], depth: boolean = false): any[] => {
   if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
   let results = []
