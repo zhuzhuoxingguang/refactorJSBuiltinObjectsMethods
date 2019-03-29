@@ -7,16 +7,15 @@
  */
 const indexOf = (arr: any[], searchValue: any, fromIndex: number = 0): number => {
   if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
-  let num = -1
   fromIndex = fromIndex < 0 ? (fromIndex + arr.length < 0 ? 0 : fromIndex + arr.length) : fromIndex
+  if (fromIndex >= arr.length) return -1
   for (let i = fromIndex;i < arr.length;i++) {
     // 检测NaN
     if ((arr[i] === searchValue) || (searchValue !== searchValue && arr[i] !== arr[i])) {
-      num = i
-      break
+      return i
     }
   }
-  return num
+  return -1
 }
 
 export default indexOf

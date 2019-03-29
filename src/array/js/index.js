@@ -98,7 +98,12 @@ const Utils = {
   },
   includes: function (arr, value, fromIndex) {
     if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
+    // 如果没有传递fromIndex，默认为0
+    fromIndex = fromIndex || 0
+    // 如果fromIndex小于0，就倒数查询
     fromIndex = fromIndex < 0 ? arr.length + fromIndex : fromIndex
+    // 如果加上了数组的长度依然小于0，直接修正为0
+    fromIndex = fromIndex < 0 ? 0 : fromIndex
     for (var i = fromIndex; i < arr.length; i++) {
       // 注意检测NaN
       if ((arr[i] === value) || (value !== value && arr[i] !== arr[i])) return true
@@ -107,16 +112,15 @@ const Utils = {
   },
   indexOf: function (arr, value, fromIndex) {
     if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
-    var num = -1
     fromIndex = (fromIndex < 0 ? (fromIndex + arr.length < 0 ? 0 : fromIndex + arr.length) : fromIndex) || 0
+    if (fromIndex >= arr.length) return -1
     for (var i = fromIndex; i < arr.length; i++) {
       // 检测NaN
       if ((arr[i] === value) || (value !== value && arr[i] !== arr[i])) {
-        num = i
-        break
+        return i
       }
     }
-    return num
+    return -1
   },
   join: function (arr, seperator) {
     if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
