@@ -134,16 +134,22 @@ const Utils = {
   },
   lastIndexOf: function (arr, value, fromIndex) {
     if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
-    var num = -1
     fromIndex = (fromIndex < 0 ? (fromIndex + arr.length < 0 ? 0 : fromIndex + arr.length) : fromIndex) || 0
-    for (var i = arr.length - 1; i > fromIndex; i--) {
+    if (fromIndex > arr.length) return -1
+    let i = arr.length - 1
+    while (i > -1) {
+      if ((arr[i] === value) || (value !== value && arr[i] !== arr[i])) {
+        return i
+      }
+      i--
+    }
+    /* for (var i = arr.length - 1; i > fromIndex; i--) {
       // 检测NaN
       if ((arr[i] === value) || (value !== value && arr[i] !== arr[i])) {
-        num = i
-        break
+        return i
       }
-    }
-    return num
+    } */
+    return -1
   },
   map: function (arr, fn) {
     if (!(arr instanceof Array)) throw new Error("请确保参数类型为数组")
