@@ -6,8 +6,10 @@
 const pop = (arr: any[]): any => {
   if (!(arr instanceof Array)) throw new Error("请确保参数类型为数组")
   let el: any
-  el = arr[arr.length - 1]
-  arr.length = arr.length - 1
+  if (arr.length) {
+    el = arr[arr.length - 1]
+    arr.length = arr.length - 1
+  }
   return el
 }
 export default pop

@@ -44,14 +44,14 @@ let numsSort = [1, 4, "a", "c", "b", 23, 6, 3, 5]
 console.log("sort:", Utils.sort(numsSort, (a, b) => (a - b)));
 
 let numsUnshift = ["a", "b", "c"]
-console.log("unshift:", Utils.unshift(numsUnshift, 23, 34, 56, ['3'], { key: "ttt" }), numsUnshift);
+console.log("unshift:", Utils.unshift(numsUnshift), numsUnshift);
 let numsUnshiftArray: any[] = ["a", "b", "c"]
 
-console.log("unshift:", numsUnshiftArray.unshift(23, 34, 56, ['3'], { key: "ttt" }), numsUnshift);
+// console.log("unshift:", numsUnshiftArray.unshift(23, 34, 56, ['3'], { key: "ttt" }), numsUnshift);
 
 
 console.log("shift:", Utils.shift(numsUnshift), numsUnshift);
-console.log("shift:", numsUnshiftArray.shift(), numsUnshift);
+// console.log("shift:", numsUnshiftArray.shift(), numsUnshift);
 
 console.log("slice: ", Utils.slice(numsUnshift, 1, 4));
 let arrSplice: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]

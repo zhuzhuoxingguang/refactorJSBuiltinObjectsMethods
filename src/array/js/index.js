@@ -161,8 +161,11 @@ const Utils = {
   },
   pop: function (arr) {
     if (!(arr instanceof Array)) throw new Error("请确保参数类型为数组")
-    var el = arr[arr.length - 1]
-    arr.length = arr.length - 1
+    var el;
+    if (arr.length) {
+      el = arr[arr.length - 1]
+      arr.length = arr.length - 1
+    }
     return el
   },
   push: function (arr) {
@@ -206,11 +209,14 @@ const Utils = {
   },
   shift: function (arr) {
     if (!(arr instanceof Array)) throw new Error("请确保参数类型为数组")
-    var el = arr[0]
-    for (var i = 0; i < arr.length; i++) {
-      arr[i] = arr[i + 1]
+    var el;
+    if (arr.length > 0) {
+      el = arr[0]
+      for (var i = 0; i < arr.length - 1; i++) {
+        arr[i] = arr[i + 1]
+      }
+      arr.length = arr.length - 1
     }
-    arr.length = arr.length - 1
     return el
   },
   slice: function (arr, begin, end) {
@@ -262,11 +268,12 @@ const Utils = {
   },
   unshift: function (arr) {
     if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
-    for (var i = arguments.length - 1; i >= 1; i--) {
+    let i = arguments.length - 1
+    while (i) {
       for (var j = arr.length; j > 0; j--) {
         arr[j] = arr[j - 1]
       }
-      arr[0] = arguments[i]
+      arr[0] = arguments[i--]
     }
     return arr.length
   },
@@ -276,6 +283,8 @@ const Utils = {
     var results = []
     var min = Math.min(arr.length, others.length)
     for (var i = 0; i < min; i++) {
+
+
       results[results.length] = fn(arr[i], others[i])
     }
     return results

@@ -5,11 +5,14 @@
  */
 const shift = (arr: any[]): any => {
   if (!(arr instanceof Array)) throw new Error("请确保参数类型为数组")
-  let el = arr[0]
-  for (let i = 0;i < arr.length;i++) {
-    arr[i] = arr[i + 1]
+  let el: any;
+  if (arr.length) {
+    el = arr[0]
+    for (let i = 0;i < arr.length - 1;i++) {
+      arr[i] = arr[i + 1]
+    }
+    arr.length = arr.length - 1
   }
-  arr.length = arr.length - 1
   return el
 }
 export default shift

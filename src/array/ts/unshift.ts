@@ -6,12 +6,21 @@
  */
 const unshift = (arr: any[], ...rest): number => {
   if (!(arr instanceof Array)) throw new Error("请确保第一个参数类型为数组")
-  for (let i = rest.length - 1;i >= 0;i--) {
-    for (let j = arr.length;j > 0;j--) {
+  if (!rest.length) return arr.length
+  let i = rest.length - 1
+  do {
+    for (var j = arr.length;j > 0;j--) {
       arr[j] = arr[j - 1]
     }
     arr[0] = rest[i]
-  }
+  } while (i--)
+  /* 
+    for (let i = rest.length - 1;i >= 0;i--) {
+      for (let j = arr.length;j > 0;j--) {
+        arr[j] = arr[j - 1]
+      }
+      arr[0] = rest[i]
+    } */
   return arr.length
 }
 export default unshift
