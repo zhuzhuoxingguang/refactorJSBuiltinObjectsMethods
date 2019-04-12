@@ -17,8 +17,9 @@ const sort = (arr: any[], fn = (a: any, b: any): any => (a - b)) => {
     // 如果有非数字元素，按Unicode码点升序
     fn = (a, b) => ("" + a > "" + b)
   }
-  for (let i = 0;i < arr.length;i++) {
-    for (let j = 0;j < arr.length - i;j++) {
+  // 冒泡排序
+  for (let i = 0;i < arr.length - 1;i++) {
+    for (let j = 0;j < arr.length - 1 - i;j++) {
       let bool = isAllNumber ? (fn(arr[j], arr[j + 1]) > 0) : fn(arr[j], arr[j + 1])
       if (bool) {
         let temp = arr[j + 1]

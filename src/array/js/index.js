@@ -246,7 +246,7 @@ const Utils = {
       (start + arr.length < 0 ? 0 : start + arr.length) :
       (start > arr.length ? arr.length : start)
     // 如果deleteCount数值过大，则修正为从起始位置到数组结尾的长度
-    if (deleteCount > (arr.length - start)) {deleteCount = arr.length - start}
+    if (deleteCount > (arr.length - start)) { deleteCount = arr.length - start }
     // 获取删除的元素，并组成新的数组实例
     for (var i = start; i < (start + deleteCount); i++) {
       results[results.length] = arr[i]
@@ -288,5 +288,37 @@ const Utils = {
       results[results.length] = fn(arr[i], others[i])
     }
     return results
+  },
+  sort: function (arr, fn) {
+    if (!(arr instanceof Array)) throw new Error("请传入数组类型的参数")
+    if (!fn) {
+      // 定义默认
+      fn = function (a, b) { return a - b }
+    }
+    // 判断是否全都为数字
+    let isAllNumber = true
+    for (let i = 0; i < arr.length; i++) {
+      isAllNumber = typeof arr[i] === "number"
+      if (!isAllNumber) break
+    }
+    if (!isAllNumber) {
+      // 如果有非数字元素，按Unicode码点升序
+      fn = function (a, b) {
+        return "" + a > "" + b
+      }
+    }
+    // 冒泡排序
+    for (let i = 0; i < arr.length - 1; i++) {
+      for (let j = 0; j < arr.length - 1 - i; j++) {
+        let bool = isAllNumber ? (fn(arr[j], arr[j + 1]) > 0) : fn(arr[j], arr[j + 1])
+        if (bool) {
+          let temp = arr[j + 1]
+          arr[j + 1] = arr[j]
+          arr[j] = temp
+        }
+      }
+    }
+    return arr
   }
 }
+
